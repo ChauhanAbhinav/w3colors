@@ -1,0 +1,40 @@
+#picker_frame{
+height:1600px;width:900px;margin:40px auto;
+background-color:#efefef;
+}
+#picker{
+height:404px;width:505px;cursor:pointer;background-color:rgb(41, 194, 194);}
+#picker_pointer{
+height: 15px;width: 15px;float: left;
+border: 1.5px solid white;
+border-radius: 20px;
+position: relative;left: 321px;top: 119px;
+-webkit-transition: left 0.5s, top 0.5s;
+transition:left 0.5s, top 0.5s;
+}
+.picker_small_div{
+height:4px;width:505px;
+}
+#hue{
+height:404px;width:5%;float:left;cursor:pointer;
+background:red;
+background: -webkit-linear-gradient(hsl(0,100%,50%) ,hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%));
+background: -o-linear-gradient(hsl(0,100%,50%) ,hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%));
+background: -moz-linear-gradient(hsl(0,100%,50%) ,hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%)); 
+background: linear-gradient(hsl(0,100%,50%) ,hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%));
+}
+#hue_pointer{
+width:22px;height:22px;float:left;
+border:1.5px solid white;border-radius: 30px;
+background-color:hsl(180,100%,50%);
+position: relative;left: -5px;top: 190px;
+box-shadow:0.1px 0.1px 15px #999;
+transition: top 0.5s ;-webkit-transition: top 0.5s ;
+}
+#result_box{
+height:150px;width:200px;cursor:pointer;
+background-color:rgba(41, 194, 194,1);line-height:140px;
+}
+#copy{ position:relative;z-index:2;font-size:20px;
+color:white;opacity:0;transition:opacity 0.8s;-webkit-transition:opacity 0.8s;
+}

@@ -1,0 +1,43 @@
+#hsv_box{
+width:830px;height:700px;background-color:#eeeeee;margin:100px 250px;
+}
+#hsv_result_color_box{
+width:700px;height:100px;background-color:red;
+position: relative;left:50px;top:25px;
+}
+.hsv_slider_big_div{
+width:650px;height:20px;
+position: relative;top:-13px;left:16px;
+}
+.hue_hsv_slider_small_div{
+float:left;height:20px;width:1.81px;
+}
+	
+.sat_hsv_slider_small_div{
+float:left;height:20px;width:6.43px;
+}
+	
+.val_hsv_slider_small_div{
+float:left;height:20px;width:6.43px;
+}		
+.hsv_box_pointer{
+height:24px;width:31px;font-size:18px;text-align:center;
+background-color:white;position:relative;top:-13px;
+border-radius:2px;box-shadow:1px 1px 7px silver;
+}
+#hue_hsv_box_pointer{left:0px;}
+#sat_hsv_box_pointer{left:647px;}
+#val_hsv_box_pointer{left:647px;}
+.hsv_triangle_pointer {
+display:block;width:0px;height:0px;position:relative;top:-13px;
+border-left:5px solid transparent;
+border-right:5px solid transparent;
+border-top:5px solid white;
+border-bottom:0px solid white;
+}
+#hue_hsv_triangle_pointer{left:11px}
+#sat_hsv_triangle_pointer{left:658px}
+#val_hsv_triangle_pointer{left:658px}
+.hsv_input_field{
+position:relative;height:28px; width:50px;text-align:center;
+}

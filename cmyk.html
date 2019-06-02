@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>CMYK Calculator</title>
+<link rel="stylesheet" href="css/cmyk.css">
+	</head>
+<body >
+	<div id="cmyk_box">
+		<div id="cmyk_result_color_box"></div>
+<table id="cmyk_slider_table" style="margin:60px auto;text-align:center">	
+<tr>
+<td height="70" width="30"><span >C</span></td>
+<td width="80"><input type="number" id="cyan_cmyk_input_field" class="cmyk_input_field" oninput="edit_value(this);input_to_bars(this);write_colors();"  value="0"></td>
+<td width="685"><div id="cyan_cmyk_box_pointer" class="cmyk_box_pointer"><span id="cyan_cmyk_pointer_value" >0</span></div>
+<div class="cmyk_triangle_pointer" id="cyan_cmyk_triangle_pointer"></div>
+		<div id="cyan_cmyk_slider_big_div" class="cmyk_slider_big_div">
+<script>	
+function cmyk_to_rgb(c,m,y,k)
+{ var r, g, b;c/=100;m/=100;y/=100;k/=100;
+  r=Math.round(255-((Math.min(1,c*(1-k)+k))*255));
+  g=Math.round(255-((Math.min(1,m*(1-k)+k))*255));
+  b=Math.round(255-((Math.min(1,y*(1-k)+k))*255));
+  var rgbs="rgb("+r+", "+g+", "+b+")";
+  return [r,g,b,rgbs];
+}
+var i=0,rgb;
+for(i=0;i<=100;i++)
+{ rgb=cmyk_to_rgb(i,0,0,0);
+document.write('<div style="background-color:'+rgb[3]+'" class="cyan_cmyk_slider_small_div" id="cyan_cmyk_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors();"></div>');
+}
+</script>	
+</div></td>
+</tr>
+<tr>
+<td height="70"><span>M</span></td>
+<td><input type="number" id="mag_cmyk_input_field" class="cmyk_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0"></td>
+<td><div id="mag_cmyk_box_pointer" class="cmyk_box_pointer"><span id="mag_cmyk_pointer_value" >0</span></div>
+<div class="cmyk_triangle_pointer" id="mag_cmyk_triangle_pointer"></div>
+<div id="mag_cmyk_slider_big_div" class="cmyk_slider_big_div">
+<script>
+for(i=0;i<=100;i++)
+{ rgb=cmyk_to_rgb(0,i,0,0);
+document.write('<div style="background-color:'+rgb[3]+'" class="mag_cmyk_slider_small_div" id="mag_cmyk_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');
+}
+</script>
+</div></td>
+</tr>	
+<tr>
+<td height="70"><span >Y</span></td>
+<td><input type="number" id="yel_cmyk_input_field" class="cmyk_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0"></td>
+<td><div id="yel_cmyk_box_pointer" class="cmyk_box_pointer"><span id="yel_cmyk_pointer_value" >0</span></div>
+<div class="cmyk_triangle_pointer" id="yel_cmyk_triangle_pointer"></div>
+<div id="yel_cmyk_slider_big_div" class="cmyk_slider_big_div">
+<script>
+for(i=0;i<=100;i++)
+{ rgb=cmyk_to_rgb(0,0,i,0);
+document.write('<div style="background-color:'+rgb[3]+'" class="yel_cmyk_slider_small_div" id="yel_cmyk_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');
+}
+</script>
+</div></td>
+</tr>
+<tr>
+<td height="70"><span >K</span></td>
+<td><input type="number" id="black_cmyk_input_field" class="cmyk_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0"></td>
+<td><div id="black_cmyk_box_pointer" class="cmyk_box_pointer"><span id="black_cmyk_pointer_value" >0</span></div>
+<div class="cmyk_triangle_pointer" id="black_cmyk_triangle_pointer"></div>
+<div id="black_cmyk_slider_big_div" class="cmyk_slider_big_div">
+<script>
+for(i=0;i<=100;i++)
+{ rgb=cmyk_to_rgb(0,0,0,i);
+document.write('<div style="background-color:'+rgb[3]+'" class="black_cmyk_slider_small_div" id="black_cmyk_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');
+}
+
+</script>
+</div></td>
+</tr>
+</table id="color_value_table">
+<table style="margin-left:200px;margin-top: 50px" id="cmyk_to_others_table">
+	<tr><td>CMYK values</td><td><span id="cmyk_value">cmyk(0%, 0%, 0%, 0%)</span></td></tr>
+	<tr><td>RGB values</td><td><span id="rgb_value">rgb(255, 255, 255)</span></td></tr>
+	<tr><td>Hex values</td><td><span id="hex_value">#ffffff</span></td></tr>
+	<tr><td>HSL values</td><td><span id="hsl_value">hsl(0, 0%, 100%)</span></td></tr>
+	<tr><td>HSV values</td><td><span id="hsv_value">hsv(0, 0%, 100%)</span></td></tr>
+	<tr><td>HWB values</td><td><span id="hwb_value">hwb(0, 100%, 0%)</span></td></tr>
+</table>
+	</div>
+<script type="text/javascript" src="library/color_library.js"></script>
+<script type="text/javascript" src="javascript/cmyk.js"></script>
+</body>
+</html>

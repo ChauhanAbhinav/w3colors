@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>HWB Calculator</title>
+<link rel="stylesheet" href="css/hwb.css">
+<style>
+</style>
+
+	</head>
+<body >
+	<div id="hwb_box">
+		<div id="hwb_result_color_box"></div>
+<table id="hwb_slider_table" style="margin:60px auto;text-align:center">
+<tr>
+<td height="70" width="30"><span >H</span></td>
+<td width="80"><input type="number" id="hue_hwb_input_field" class="hwb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0"></td>
+<td width="685"><div id="hue_hwb_box_pointer" class="hwb_box_pointer"><span id="hue_hwb_pointer_value" >0</span></div>
+<div class="hwb_triangle_pointer" id="hue_hwb_triangle_pointer"></div>
+<div id="hue_hwb_slider_big_div" class="hwb_slider_big_div">
+	<script>
+function hue_to_rgb(a,b,h)
+{ if (h<0) h+=6;
+  if (h>=6) h-=6;
+  if (h<1) return (b-a)*h+a;
+  else if(h<3) return b;
+  else if(h<4) return (b-a)*(4-h)+a;
+  else return a;
+}
+function hsl_to_rgb(h,s,l) 
+{  var a,b,r,g,b;
+  h=h/60;s/=100;l/=100;
+  if (l<=0.5) { b=l*(s+1);} 
+  else { b=l+s-(l*s);}
+  a=l*2-b;
+  r = Math.round(hue_to_rgb(a,b,h+2)*255);
+  g = Math.round(hue_to_rgb(a,b,h)*255);
+  b = Math.round(hue_to_rgb(a,b,h-2)*255);
+  var rgb="rgb("+r+", "+g+", "+b+")";
+  return [r,g,b,rgb];}
+function hwb_to_rgb(h,w,b) 
+{ var i,rgb;w/=100;b/=100; //w+b<=100
+  rgb=hsl_to_rgb(h,100,50);
+  rgb[0]/=255;rgb[1]/=255;rgb[2]/=255;
+  for (i=0;i<3;i++) {
+    rgb[i]*=(1-w-b);
+    rgb[i]+=w;
+    rgb[i]=Math.round(rgb[i] * 255);}
+  var rgbs="rgb("+rgb[0]+", "+rgb[1]+", "+rgb[2]+")";
+  return [rgb[0],rgb[1],rgb[2],rgbs];
+}
+var i=0,rgb;
+for(i=0;i<=360;i++)
+document.write('<div style="background-color:hsl('+i+',100%,50%)" class="hue_hwb_slider_small_div" id="hue_hwb_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors();change_white_black('+i+')"></div>');
+	</script></div></td>
+</tr>
+<tr>
+<td height="70"><span>W</span></td>
+<td><input type="number" id="white_hwb_input_field" class="hwb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0"></td>
+<td><div id="white_hwb_box_pointer" class="hwb_box_pointer" ><span id="white_hwb_pointer_value">0</span></div>
+	<div class="hwb_triangle_pointer" id="white_hwb_triangle_pointer"></div>
+	<div id="white_hwb_slider_big_div" class="hwb_slider_big_div">
+	<script>
+for(i=0;i<=100;i++)
+{   rgb=hwb_to_rgb(0,i,0);
+document.write('<div style="background-color:'+rgb[3]+'" class="white_hwb_slider_small_div" id="white_hwb_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');}
+	</script></div></td>
+</tr>
+<tr>
+<td height="70"><span >B</span></td>
+<td><input type="number" id="black_hwb_input_field" class="hwb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="0">
+<td><div id="black_hwb_box_pointer" class="hwb_box_pointer"><span id="black_hwb_pointer_value" >0</span></div>
+<div class="hwb_triangle_pointer" id="black_hwb_triangle_pointer"></div>
+	<div id="black_hwb_slider_big_div" class="hwb_slider_big_div">
+	<script>
+for(i=0;i<=100;i++)
+{ rgb=hwb_to_rgb(0,0,i);
+document.write('<div style="background-color:'+rgb[3]+'" class="black_hwb_slider_small_div" id="black_hwb_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');
+}	</script></div></td>
+</tr>
+</table>
+
+<table style="margin-left:200px;margin-top: 50px" id="hwb_to_others_table">
+	<tr><td>HWB values</td><td><span id="hwb_value">hwb(0, 0%, 0%)</span></td></tr>
+	<tr><td>RGB values</td><td><span id="rgb_value">rgb(255, 0, 0)</span></td></tr>
+	<tr><td>Hex values</td><td><span id="hex_value">#ff0000</span></td></tr>
+	<tr><td>HSL values</td><td><span id="hsl_value">hsl(0, 100%, 50%)</span></td></tr>
+	<tr><td>HSV values</td><td><span id="hsv_value">hsv(0, 100%, 100%)</span></td></tr>
+	<tr><td>CMYK values</td><td><span id="cmyk_value">cmyk(0%, 100%, 100%, 0%)</span></td></tr>
+</table>
+</div>
+<script type="text/javascript" src="library/color_library.js"></script>
+<script type="text/javascript" src="javascript/hwb.js"></script>
+</body>
+</html>

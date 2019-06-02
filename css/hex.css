@@ -1,0 +1,35 @@
+#hex_slider_box{
+width:800px;height:400px;background-color:#eeeeee;margin:100px 250px;
+}
+#hex_result_color_box{
+width:700px;height:100px;background-color:black;
+position: relative;left:50px;top:25px;
+}
+.hex_slider_big_div{
+width:650px;height:20px;
+position: relative;top:-13px;left:16px;
+}
+.red_hex_slider_small_div{
+float:left;height:20px;width:2.5px;
+}
+.green_hex_slider_small_div{
+float:left;height:20px;width:2.5px;
+}
+.blue_hex_slider_small_div{
+float:left;height:20px;width:2.5px;
+}		
+.hex_box_pointer{
+height:24px;width:31px;font-size:18px;text-align:center;
+background-color:white;position:relative;top:-13px;
+border-radius:2px;box-shadow:1px 1px 7px silver;
+}
+.hex_triangle_pointer {
+display:block;width:0px;height:0px;
+position:relative;left:11px;top:-13px;
+border-left:5px solid transparent;
+border-right:5px solid transparent;
+border-top:5px solid white;
+border-bottom:0px solid white;
+}
+.hex_input_field{height:30px;width:45px;text-align:center;
+}

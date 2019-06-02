@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>HSV Calculator</title>
+<link rel="stylesheet" href="css/hsv.css">
+	</head>
+<body >
+	<div id="hsv_box">
+		<div id="hsv_result_color_box"></div>
+<table id="hsv_slider_table" style="margin:60px auto;text-align:center">	
+<tr>
+<td height="70" width="30"><span >H</span></td>
+<td width="80"><input type="number" id="hue_hsv_input_field" class="hsv_input_field" oninput="edit_value(this);input_to_bars(this);write_colors();"  value="0"></td>
+<td width="685"><div id="hue_hsv_box_pointer" class="hsv_box_pointer"><span id="hue_hsv_pointer_value" >0</span></div>
+<div class="hsv_triangle_pointer" id="hue_hsv_triangle_pointer"></div>
+		<div id="hue_hsv_slider_big_div" class="hsv_slider_big_div">
+<script>	
+function hsv_to_rgb(h,s,v) 
+{    var h = Math.round(h);
+    var s = Math.round(s * 255 / 100);
+    var v = Math.round(v * 255 / 100);
+        if (s == 0) {
+        r = g = b = v;
+        } else {
+        var t1 = v;
+        var t2 = (255 - s) * v / 255;
+        var t3 = (t1 - t2) * (h % 60) / 60;
+            if (h == 360) h = 0;
+                if (h < 60) { r = t1; b = t2;g = t2 + t3 }
+                else if (h < 120) { g = t1; b = t2; r = t1 - t3 }
+                else if (h < 180) { g = t1; r = t2; b = t2 + t3 }
+                else if (h < 240) { b = t1; r = t2; g = t1 - t3 }
+                else if (h < 300) { b = t1; g = t2; r = t2 + t3 }
+                else if (h < 360) { r = t1; g = t2; b = t1 - t3 }
+                else { r = 0; g = 0; b = 0 }
+        } r=Math.round(r);g=Math.round(g);b=Math.round(b); 
+         var rgbs="rgb("+r+", "+g+", "+b+")";  
+return [r,g,b,rgbs];}
+var i=0,rgb;
+for(i=0;i<=360;i++)
+{ rgb=hsv_to_rgb(i,100,100);
+document.write('<div style="background-color:'+rgb[3]+'" class="hue_hsv_slider_small_div" id="hue_hsv_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors();change_sat_val('+i+')"></div>');
+}
+</script>	
+</div></td>
+</tr>
+<tr>
+<td height="70"><span>S</span></td>
+<td><input type="number" id="sat_hsv_input_field" class="hsv_input_field" oninput="edit_value(this);input_to_bars(this);write_colors();"  value="100"></td>
+<td><div id="sat_hsv_box_pointer" class="hsv_box_pointer"><span id="sat_hsv_pointer_value" >100</span></div>
+<div class="hsv_triangle_pointer" id="sat_hsv_triangle_pointer"></div>
+<div id="sat_hsv_slider_big_div" class="hsv_slider_big_div">
+<script>
+for(i=0;i<=100;i++)
+{ document.write('<div style="background-color:hsl(0,'+i+'%,50%)" class="sat_hsv_slider_small_div" id="sat_hsv_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors()"></div>');
+}
+</script>
+</div></td>
+</tr>	
+<tr>
+<td height="70"><span >V</span></td>
+<td><input type="number" id="val_hsv_input_field" class="hsv_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()"  value="100"></td>
+<td><div id="val_hsv_box_pointer" class="hsv_box_pointer"><span id="val_hsv_pointer_value" >100</span></div>
+<div class="hsv_triangle_pointer" id="val_hsv_triangle_pointer"></div>
+<div id="val_hsv_slider_big_div" class="hsv_slider_big_div">
+<script>
+for(i=0;i<=100;i++)
+{ rgb=hsv_to_rgb(0,100,i);
+document.write('<div style="background-color:'+rgb[3]+'" class="val_hsv_slider_small_div" id="val_hsv_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+');write_colors('+i+')"></div>');
+}
+</script>
+</div></td>
+</tr>
+</script>
+</table id="color_value_table">
+<table style="margin-left:200px;margin-top: 50px" id="hsv_to_others_table">
+	<tr><td>HSV values</td><td><span id="hsv_value">hsv(0, 100%, 100%)</span></td></tr>
+	<tr><td>RGB values</td><td><span id="rgb_value">rgb(255, 0, 0)</span></td></tr>
+	<tr><td>Hex values</td><td><span id="hex_value">#ff0000</span></td></tr>
+	<tr><td>HSL values</td><td><span id="hsl_value">hsl(0, 100%, 50%)</span></td></tr>
+	<tr><td>HWB values</td><td><span id="hwb_value">hwb(0, 0%, 0%)</span></td></tr>
+	<tr><td>CMYK values</td><td><span id="cmyk_value">cmyk(0%, 100%, 100%, 0%)</span></td></tr>
+</table>
+	</div>
+<script type="text/javascript" src="library/color_library.js"></script>
+<script type="text/javascript" src="javascript/hsv.js"></script>
+</body>
+</html>

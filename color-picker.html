@@ -1,0 +1,48 @@
+<html>
+	<head><title>Color Picker</title>
+	<link rel="stylesheet" href="css/color_picker.css">
+	</head>
+<body>
+	<div id="picker_frame" >
+	 	<div style="height:404px;width:65%;float:left" align="center">
+     		<div id="picker" onClick="get_color(this,event)">
+       		<div id="picker_pointer" ></div>
+            <div id="picker_maker"></div>
+	   <script>
+var hue=180,sat=65,lit=46;
+function create_picker(h)
+{ 
+var s="",i,j,k=50;
+for(i=100;i>=0;i--)
+{
+s+='<div class="picker_small_div" style="background:-webkit-linear-gradient(left,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%));background:-moz-linear-gradient(right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);background:-o-linear-gradient(right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);background: linear-gradient(to right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);" ></div>';
+if(i%2==0) k--;
+}
+document.getElementById("picker_maker").innerHTML=s;
+}
+
+create_picker(hue);
+ 	
+    </script>
+	 		</div>
+        </div>
+	 <div style="height:404px;width:35%;float:left">
+	 	<div id="hue" onClick="get_hue(this,event)">
+        	<div id="hue_pointer"></div>
+            </div>
+	 	<div id="result_frame" style="height:404px;width:95%;float:right;" align="center">
+     		<br>
+            <div id="result_box" class="cpy_btn" onMouseOver="show_copy()" onMouseOut="hide_copy()" data-clipboard-target="#hex_value">
+            	 <span id="copy" >Copy</span>
+            </div>
+	 		<div id="result_values_box" style="padding:10px;">
+        	 	 <span id="rgb_value">rgb(41, 194, 194)</span><br><span id="hex_value">#29c2c2</span><br><span id="hsl_value">hsl(180, 65%, 46%)</span>
+      		</div>
+	 	</div>
+	 </div>
+	 	
+	</div>	
+<script type="text/javascript" src="library/clipboard.min.js"></script>
+<script type="text/javascript" src="javascript/color_picker.js"></script>
+</body>
+</html>

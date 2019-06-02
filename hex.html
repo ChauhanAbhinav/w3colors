@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>HEX Calculator</title>
+<link rel="stylesheet" href="css/hex.css">
+<style>
+</style>
+	</head>
+<body >
+	<div id="hex_slider_box">
+	<div id="hex_result_color_box"></div>
+<table id="hex_slider_table" style="margin:60px auto;text-align:center">	
+<tr>
+<td height="70" width="30"><span >R</span></td>
+<td width="80"><input type="text" id="red_hex_input_field"   class="hex_input_field" oninput="input_to_bars(this); write_colors()" onfocusout="input_focus_out(this)" maxlength="2" value="00"></td>
+<td width="685"><div id="red_hex_box_pointer" class="hex_box_pointer"><span id="red_hex_pointer_value" >00</span></div>
+<div class="hex_triangle_pointer" id="red_hex_triangle_pointer"></div>
+<div id="red_hex_slider_big_div" class="hex_slider_big_div">
+	<script>
+		 var i=0;
+		for(i=0;i<=255;i++)
+		document.write('<div style="background-color:rgb(255,0,0)" class="red_hex_slider_small_div" id="red_hex_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+'); write_colors()" ></div>');
+	</script></div></td>
+</tr>
+<tr>
+<td height="70"><span>G</span></td>
+<td><input type="text" id="green_hex_input_field" class="hex_input_field" oninput="input_to_bars(this); write_colors()" onfocusout="input_focus_out(this)" maxlength="2" value="00"></td>
+<td><div id="green_hex_box_pointer" class="hex_box_pointer" ><span id="green_hex_pointer_value">00</span></div>
+<div class="hex_triangle_pointer" id="green_hex_triangle_pointer"></div>
+<div id="green_hex_slider_big_div" class="hex_slider_big_div">
+	<script>
+		var i=0;
+		for(i=0;i<=255;i++)
+		document.write('<div style="background-color:rgb(0,'+i+',0)" class="green_hex_slider_small_div" id="green_hex_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+'); write_colors()" ></div>');
+	</script></div></td>
+</tr>
+<tr>
+<td height="70"><span >B</span></td>
+<td><input type="text" id="blue_hex_input_field"  class="hex_input_field" oninput="input_to_bars(this); write_colors()" onfocusout="input_focus_out(this)" maxlength="2" value="00"></td>
+<td><div id="blue_hex_box_pointer" class="hex_box_pointer"><span id="blue_hex_pointer_value" >00</span></div>
+<div class="hex_triangle_pointer" id="blue_hex_triangle_pointer"></div>	
+<div id="blue_hex_slider_big_div" class="hex_slider_big_div">
+		<script>
+		var i=0;
+		for(i=0;i<=255;i++)
+	 	document.write('<div style="background-color:rgb(0,0,'+i+')" class="blue_hex_slider_small_div" id="blue_hex_slider_small_div'+i+'" onmousemove="get_pointer_value(this,'+i+'); write_colors()" ></div>');
+	</script></div></td>
+</tr>
+</table>
+<table style="margin-left:200px;margin-top: 50px" id="hex_to_others_table">
+	<tr><td>Hex values</td><td><span id="hex_value">#000000</span></td></tr>
+	<tr><td>RGB values</td><td><span id="rgb_value">rgb(0, 0, 0)</span></td></tr>
+	<tr><td>HSL values</td><td><span id="hsl_value">hsl(0, 0%, 0%)</span></td></tr>
+	<tr><td>HSV values</td><td><span id="hsv_value">hsv(0, 0%, 0%)</span></td></tr>
+	<tr><td>HWB values</td><td><span id="hwb_value">hwb(0, 0%, 100%)</span></td></tr>
+	<tr><td>CMYK values</td><td><span id="cmyk_value">cmyk(0%, 0%, 0%, 100%)</span></td></tr>
+</table>
+	</div>
+<script type="text/javascript" src="library/color_library.js"></script>
+<script type="text/javascript" src="javascript/hex.js"></script>
+</body>
+</html>

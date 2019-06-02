@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home | Colors Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> !-->
+  <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/color_picker.css"> 
+  
+  <script src="javascript/home.js"></script>
+</head>
+<body onscroll="">
+<div class="header">
+	    <div id="logo" class="logo">
+    		<div class="nav-icon" id="nav-icon" onClick="openSideNav()"><span class="nav-stick nav-stick1"></span>
+                    <span class="nav-stick nav-stick2"></span><span class="nav-stick nav-stick3"></span>
+        	</div>
+			<span class="logo-part1" style="font-size:28px;font-weight:900;font-family:candara;"> 
+    			<span style="color:#FF9999">C&nbsp;</span><span style="color:#3399FF">O</span>
+            	<span style="color:#3EB049">L&nbsp;</span><span style="color:#FEC52F">O</span>
+            	<span style="color:#8C4B9E">R&nbsp;</span><span style="color:#14BF8C">S</span>
+    		</span>
+    		<span class="logo-part2" style="font-size:16px;font-weight:500;">&nbsp;TUTORIAL</span>
+     	</div>
+        <div class="top-nav">
+				<div class="menu">
+    				<a href="color-picker.html">Picker</a>
+                    <a href="color-names.html">Names</a>
+        			<a href="color-palettes.html">Palettes</a>
+                    <a href="color-mixer.html">Mixer</a>
+                    <a href="#">Converters</a>
+                    <a href="#">Theory</a>
+                    <img src="img/icons/icon-search.svg">
+    			</div>
+	    </div>
+</div>
+<div style="height:100px;width:100%;background:;"></div>
+<div class="container-fluid">
+		<div class="side-nav collapse" id="side-nav" >
+                	<ul class="side-nav-list collapse">
+                   <!-- <li class="collapse"><a href="color-theory.html">Color Theory</a></li> !-->
+                    <li class="collapse"><a href="color-names.html">Color Names</a></li>
+                    <li class="collapse">Converters &nbsp; <div class="triangle side-nav-triangle"></div>
+                    	<ul class="converter-list collapse">
+							<li class="collapse"><a href="rgb.html">rgb</a></li>
+							<li class="collapse"><a href="hex.html">hex</a></li>
+							<li class="collapse"><a href="cmyk.html">cmyk</a></li>
+							<li class="collapse"><a href="hsl.html">hsl</a></li>
+							<li class="collapse"><a href="hsv.html">hsv</a></li>
+							<li class="collapse"><a href="hwb.html">hwb</a></li>
+						</ul>
+                    </li>
+                    <li class="collapse"><a href="color-mixer.html">Mixer</a></li>
+                    <li class="collapse"><a href="color-picker.html">picker</a></li>
+                    <li class="collapse"><a href="color-palettes.html">Palettes</a></li>
+                    </ul>
+         	</div>
+		<div class="content">
+      			<div style="width:100%;text-align:center;">
+                		<div class="content-mid" style="padding-top:;box-sizing:border-box;">
+
+ 	<div id="picker_frame" >
+	 	<div style="height:404px;width:65%;float:left" align="center">
+     		<div id="picker" onClick="get_color(this,event)">
+       		<div id="picker_pointer" ></div>
+            <div id="picker_maker"></div>
+	   <script>
+var hue=180,sat=65,lit=46;
+function create_picker(h)
+{ 
+var s="",i,j,k=50;
+for(i=100;i>=0;i--)
+{
+s+='<div class="picker_small_div" style="background:-webkit-linear-gradient(left,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%));background:-moz-linear-gradient(right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);background:-o-linear-gradient(right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);background: linear-gradient(to right,hsl('+h+',0%,'+i+'%) ,hsl('+h+',100%,'+k+'%);" ></div>';
+if(i%2==0) k--;
+}
+document.getElementById("picker_maker").innerHTML=s;
+}
+
+create_picker(hue);
+ 	
+    </script>
+	 		</div>
+        </div>
+	 <div style="height:404px;width:35%;float:left">
+	 	<div id="hue" onClick="get_hue(this,event)">
+        	<div id="hue_pointer"></div>
+            </div>
+	 	<div id="result_frame" style="height:404px;width:95%;float:right;" align="center">
+     		<br>
+            <div id="result_box" class="cpy_btn" onMouseOver="show_copy()" onMouseOut="hide_copy()" data-clipboard-target="#hex_value">
+            	 <span id="copy" >Copy</span>
+            </div>
+	 		<div id="result_values_box" style="padding:10px;">
+        	 	 <span id="rgb_value">rgb(41, 194, 194)</span><br><span id="hex_value">#29c2c2</span><br><span id="hsl_value">hsl(180, 65%, 46%)</span>
+      		</div>
+	 	</div>
+	 </div>
+	 	
+	</div>	
+<script type="text/javascript" src="library/clipboard.min.js"></script>
+<script type="text/javascript" src="javascript/color_picker.js"></script>              		
+                		
+                		</div>
+        			<div class="suggest-wrapper"></div>
+			</div>
+                <div class="footer"></div>
+        </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+#frame{height:auto;width:70%;background-color:#eeeeee;margin:0px auto;}
+#search_color_input{
+height:25px;width:370px;}
+#search_result_table{ display:inline-table;width:374px;
+position:relative;}
+#search_box{height:60px;width:70%;}
+#search_box :link { color: black; text-decoration:none;}
+#search_box :visited { color: black; text-decoration:none;}
+#jump_input{height:25px;width:30px;text-align:center;}
+.color_sample{height:30px;width:150px;cursor:pointer;}
+.copy{opacity:0;color:white;cursor:pointer;
+transition:opacity 0.4s;-webkit-transition: opacity 0.4s;}
+#top_botton{height:40px;width:40px;border-radius:100px;box-shadow:1px 1px 10px rgba(0,0,0,0.5),-1px -1px 5px rgba(0,0,0,0.1);
+background-color:red;display:none;
+position:fixed;right:15px;bottom:45px;color:white;line-height:40px;text-align:center;}

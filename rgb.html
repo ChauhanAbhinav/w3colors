@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>RGB calculator</title>
+<link rel="stylesheet" href="css/rgb.css">
+<style>
+</style>
+	</head>
+<body >
+	<div id="rgb_box">
+<div id="rgb_result_color_box"></div>
+<table id="rgb_slider_table" style="margin:60px auto;text-align:center">
+<tr>
+<td height="70" width="30"><span >R</span></td>
+<td width="80"><input type="number" id="red_rgb_input_field" class="rgb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()" value="0"></td>
+<td width="685"><input id="red_input_bar"   class="input_color_bar" type="range" oninput="bars_to_input(this);write_colors()" min="0" max="255" value="0"></td>
+</tr>
+</tr>
+<tr>
+<td height="70"><span>G</span></td>
+<td><input type="number" id="green_rgb_input_field" class="rgb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()" value="0"></td>
+<td><input id="green_input_bar" class="input_color_bar" type="range" oninput="bars_to_input(this);write_colors()" min="0" max="255" value="0"></td>
+</tr>
+<tr>
+<td height="70"><span >B</span></td>
+<td><input type="number" id="blue_rgb_input_field" class="rgb_input_field" oninput="edit_value(this);input_to_bars(this);write_colors()" value="0"></td>
+<td><input id="blue_input_bar"  class="input_color_bar" type="range" oninput="bars_to_input(this);write_colors()" min="0" max="255" value="0"></td>
+</tr>
+</table>
+<table style="margin-left:200px;margin-top: 50x" id="rgb_to_others_table">
+	<tr><td>RGB values</td><td><span id="rgb_value">rgb(0, 0, 0)</span></td></tr>
+	<tr><td>Hex values</td><td><span id="hex_value">#000000</span></td></tr>
+	<tr><td>HSL values</td><td><span id="hsl_value">hsl(0, 0%, 0%)</span></td></tr>
+	<tr><td>HSV values</td><td><span id="hsv_value">hsv(0, 0%, 0%)</span></td></tr>
+	<tr><td>HWB values</td><td><span id="hwb_value">hwb(0, 0%, 100%)</span></td></tr>
+	<tr><td>CMYK values</td><td><span id="cmyk_value">cmyk(0%, 0%, 0%, 100%)</span></td></tr>
+</table>
+	</div>
+<script type="text/javascript" src="library/color_library.js"></script>
+<script type="text/javascript" src="javascript/rgb.js"></script>
+</body>
+</html>

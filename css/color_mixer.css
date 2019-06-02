@@ -1,0 +1,59 @@
+#mixer_box{
+height:700px;width:900px;
+background-color:#cccccc;
+margin:auto;
+}
+#select_box{
+height:90%;width:68%;float:left;
+}
+#result_box{
+height:90%;width:32%;float:left;background:none;
+}
+.selecting_colors{
+height:200px;width:275px;margin:72px auto;
+background-color:red;
+}
+.smd{
+float:left;height:50px;width:55px;
+border:0px solid white;cursor:pointer;}
+.smd_0{background-color:#d11f3f;}.smd_1{background-color:#ff615d;}.smd_2{background-color:#ffa583;}.smd_3{background-color:#dad8c0;}.smd_4{background-color:#eaf0f1;}
+.smd_5{background-color:#dfd9b5;}.smd_6{background-color:#a4817e}.smd_7{background-color:#1d676a;}.smd_8{background-color:#00525f;}.smd_9{background-color:#173039;}
+.smd_10{background-color:#5a4855;}.smd_11{background-color:#919c7e;}.smd_12{background-color:#d1dfbd;}.smd_13{background-color:#555ed9;}.smd_14{background-color:#593834;}
+.smd_15{background-color:#3a126d;}.smd_16{background-color:#5f146d;}.smd_17{background-color:#9b1b6d;}.smd_18{background-color:#d0226b;}.smd_19{background-color:#ff2a6a;}
+#smd_12{border:1px solid black;height:48px;width:53px;}#smd_213{border:1px solid black;height:48px;width:53px;}
+.selected_colors{
+height:35px;width:140px;
+}
+#selected_color_1{background-color:#ffa583;}#selected_color_2{background-color:#555ed9;}
+.html_colors{/*height:40px;width;100px;*/border:none;outline:none;cursor:pointer;}
+.input_color_text{
+height:30px;width:100px;
+outline:none;text-align:center;
+font-size:20px;
+}
+#html_pp_box{
+height:30px;width:100px;background-color:white;display:none;
+position:relative;text-align:center;font-size:12px;padding-top:2px;padding-bottom:2px;
+left:0px;top:0px;
+}
+#html_pp_tri{
+height:0px;width:0px;display:none;
+border-left:7px solid transparent;
+border-right:7px solid transparent;
+border-top:7px solid white;
+border-bottom:0px solid white;
+position:relative;left:0px;top:0px;
+}
+#shade_frame{
+height:98%;width:100%;}
+.color_shade{
+height:29px;width:135px;padding-top:0px;
+line-height:29px;cursor:pointer;}
+#color_shade_10{
+height:40px;width:142px;line-height:40px;cursor:pointer;}
+.color_shade_value{
+font-size:16px;
+background:none;
+}
+.copy{display:inline;font-size:15px;opacity:0;cursor:pointer;
+-webkit-transition: opacity 1s;transition: opacity 1s;}

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Color Mixer</title>
+<link rel="stylesheet" href="css/color_mixer.css" />
+</head>
+
+<body>
+<div id="mixer_box">
+<div style="height:10%;width:100%;padding-top:0.1px;"><h2 align="center">Color Mixer</h2></div>
+	<div id="select_box">
+		<div style="height:100%;width:65%;float:left;">  
+        	<div id="selecting_colors_1" class="selecting_colors"></div>
+            <div id="selecting_colors_2" class="selecting_colors"></div>
+      </div>
+        <div style="height:100%;width:35%;float:left;">  
+        	<table align="center" style="margin-top:172px;">  
+            <tr height="30"><td align="center"><input type="color" id="html_color_1" class="html_colors" value="#ffa583" oninput="html_colors(this,1)" onmouseover="show_cpp(1)" onmouseout="hide_cpp(1)"/></td></tr>
+            <tr height="50"><td><div id="selected_color_1" class="selected_colors" ></div></td></tr>
+			<tr height="50"><td align="center"><input type="text" id="input_color_text_1" class="input_color_text" oninput="edit_input(this,1);" onfocusout="input_focus_out(this,1)" maxlength="7" value="#ffa583" spellcheck="false"/></td></tr>
+    		<tr height="50"><td align="center"><input type="text" id="input_color_text_2" class="input_color_text" oninput="edit_input(this,2);" onfocusout="input_focus_out(this,2)" maxlength="7" value="#555ed9" spellcheck="false"/></td></tr>
+        	<tr height="50"><td><div id="selected_color_2" class="selected_colors"></div></td></tr>
+            <tr height="30"><td align="center"><input type="color" id="html_color_2" class="html_colors" value="#555ed9" oninput="html_colors(this,2)" onmouseover="show_cpp(2)" onmouseout="hide_cpp(2)"/></td></tr>
+            <tr><td align="center"><div id="html_pp_box" >Select from html colors</div><div id="html_pp_tri" ></div></td></tr>
+            </table>
+        </div>
+  </div>
+  <div id="result_box" align="center">
+  <div id="shade_frame" ></div>
+  </div>
+  
+</div>
+<script>
+function create_selecting_colors()
+{ var i,x1="",x2="",sc;
+for(i=0;i<20;i++)
+{x1+='<div id="smd_1'+i+'" class="smd smd_'+i+'" onclick="set_selecting_color(this,1);"></div> ';
+ x2+='<div id="smd_2'+i+'" class="smd smd_'+i+'" onclick="set_selecting_color(this,2)"></div> ';}
+sc=document.getElementsByClassName("selecting_colors");
+sc[0].innerHTML=x1;sc[1].innerHTML=x2;
+}
+create_selecting_colors();
+</script>
+<script type="text/javascript" src="library/clipboard.min.js"></script> 
+<script type="text/javascript" src="javascript/color_mixer.js"></script>
+
+</body>
+</html>
